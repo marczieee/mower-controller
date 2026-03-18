@@ -11,42 +11,42 @@ export default defineConfig({
     tailwindcss(),
     nodePolyfills(),
     VitePWA({
-  registerType: "autoUpdate",
-  includeAssets: ["**/*"],
-  manifest: {
-    name: "iCUT",
-    short_name: "iCUT",
-    start_url: "/",
-    display: "standalone",
-    background_color: "#132736",
-    theme_color: "#132736",
-    icons: [
-      {
-        src: "/android-chrome-192x192.png",
-        sizes: "192x192",
-        type: "image/png",
+      registerType: "autoUpdate",
+      includeAssets: ["**/*"],
+      manifest: {
+        name: "iCUT",
+        short_name: "iCUT",
+        start_url: "/",
+        display: "standalone",
+        background_color: "#132736",
+        theme_color: "#132736",
+        icons: [
+          {
+            src: "/android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+          {
+            src: "/mower_logo.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any maskable",
+          },
+        ],
       },
-      {
-        src: "/android-chrome-512x512.png",
-        sizes: "512x512",
-        type: "image/png",
+      workbox: {
+        // increase file size limit to e.g. 10 MB
+        maximumFileSizeToCacheInBytes: 10485760, // 10 MiB
       },
-      {
-        src: "/mower_logo.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "any maskable",
+      devOptions: {
+        enabled: true,
       },
-    ],
-  },
-  workbox: {
-    maximumFileSizeToCacheInBytes: 10485760,
-    globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
-  },
-  devOptions: {
-    enabled: false,
-  },
-}),
+    }),
   ],
   resolve: {
     alias: {
