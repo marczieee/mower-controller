@@ -1,0 +1,7 @@
+- pnpm create vite@latest
+- pnpm install tailwindcss @tailwindcss/vite
+- pnpm dlx shadcn@latest create
+- pnpm add react-router-dom
+
+Firebase
+-  pnpm add firebase
